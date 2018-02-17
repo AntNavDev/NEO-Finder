@@ -4,6 +4,9 @@
 #header {
     text-align: center;
 }
+#distance_canvas {
+    background-color: #000000;
+}
 .hide_data {
     display: none;
 }

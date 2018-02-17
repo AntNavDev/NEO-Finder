@@ -32,19 +32,33 @@
 <head>
     <title>NEO Finder</title>
 </head>
-<body>
-    <h1 id="header">Near Earth Object Finder</h1>
-    <div id="my_ui">
-        <label for="start_date">Start Date: <input id="start_date" type="text" name="start_date"></label><br>
-        <label for="end_date">End Date: <input id="end_date" type="text" name="end_date"></label><br>
-        <button id="get_data_button" class="btn btn-success">Push</button>    
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 id="header">Near Earth Object Finder</h1>
+        </div>
     </div>
     
-    <div id="content">
+    <div class="row">
+        <div id="my_ui" class="col-md-4">
+            <label for="start_date">Start Date: <input id="start_date" type="text" name="start_date"></label><br>
+            <label for="end_date">End Date: <input id="end_date" type="text" name="end_date"></label><br>
+            <button id="get_data_button" class="btn btn-success">Push</button>    
+        </div>
         
+        <div id="content" class="col-md-4">
+            
+        </div>
+
+        <div id="canvas_container" class="col-md-4">
+            <canvas id="distance_canvas" height="500" width="700"></canvas>
+        </div>    
     </div>
+
+    
 </body>
 <footer>
-    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./js/get_neo_data.js"></script>
+    <script type="text/javascript" src="./js/build_canvas.js"></script>
 </footer>
 </html>
