@@ -40,10 +40,11 @@ $(document).ready(function(){
     });
     
     $('#get_data_button').on('click', function(){
+        var api_key = ;
         var has_error = '';
         var start_date = reformatDate($('#start_date').val());
         var end_date = reformatDate($('#end_date').val());
-        var my_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + start_date + '&end_date=' + end_date + '&api_key=YOUR_API_KEY';
+        var my_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + start_date + '&end_date=' + end_date + '&api_key=' + api_key;
 
         if(!start_date)
         {
@@ -58,7 +59,7 @@ $(document).ready(function(){
         {
             if(!compare_dates(start_date, end_date))
             {
-                has_error += ' The date range is more than 7.'    
+                has_error += ' The date range is more than 7. NASA requires you have a date range of 7 days or less.<br><br><br>...jerks.'    
             }
             $('#content').html('<div>' + has_error + '</div>');
         }
@@ -68,8 +69,6 @@ $(document).ready(function(){
             $.ajax({
                 url: my_url,
                 success: function(data){
-                    console.log('Success!');
-                    console.log(data);
                     $.each(data.near_earth_objects, function(outer_index, outer_value){
                         $('#content').append('<div><span id="occurence_date">' + outer_index + '</span><button name="hide_data_button" data-date="' + outer_index + '">Hide Data</button>');
 
